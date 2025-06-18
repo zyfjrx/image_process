@@ -13,8 +13,8 @@ NOISE_FACTOR = 0.5                # 设置噪声因子，用于向图像添加�
 # ------------ 训练超参数配置 ------------
 LEARNING_RATE = 1e-3              # 初始学习率（AdamW优化器使用）
 EPOCHS = 30                       # 总训练轮次（需平衡过拟合与欠拟合）
-TRAIN_BATCH_SIZE = 32             # 训练批次大小（GPU显存不足时可调小）
-TEST_BATCH_SIZE = 32              # 验证/测试批次大小（建议与训练批次一致）
+TRAIN_BATCH_SIZE = 128             # 训练批次大小（GPU显存不足时可调小）
+TEST_BATCH_SIZE = 128              # 验证/测试批次大小（建议与训练批次一致）
 
 # ------------ 模型配置 ------------
 SIMILARITY_PACKAGE_NAME = "image_denoising"
