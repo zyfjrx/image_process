@@ -42,6 +42,7 @@ if __name__ == '__main__':
     dataset = ImageDataset(image_dir=IMG_PATH, transform=transform)
     train_dataset, test_dataset = random_split(dataset, [TRAIN_RATIO, VAL_RATIO])
     test_loader = DataLoader(test_dataset,batch_size=TEST_BATCH_SIZE)
-    model = ConvDenoiser().to(device)
+    model = ConvDenoiser()
     model.load_state_dict(torch.load(DENOISER_MODEL_NAME,map_location=device))
+    model.eval().to(device)
     test(model, test_loader, device)
