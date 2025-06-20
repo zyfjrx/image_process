@@ -36,13 +36,13 @@ class ConvDecoder(nn.Module):
 
     def forward(self, x):
         x = torch.relu(self.conv1(x))
-        print(x.shape)
+        # print(x.shape)
         x = torch.relu(self.conv2(x))
-        print(x.shape)
+        # print(x.shape)
         x = torch.relu(self.conv3(x))
-        print(x.shape)
+        # print(x.shape)
         x = torch.relu(self.conv4(x))
-        print(x.shape)
+        # print(x.shape)
         x = torch.relu(self.conv5(x))
         return x
 

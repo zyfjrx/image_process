@@ -36,7 +36,7 @@ if __name__ == '__main__':
     decoder = ConvDecoder().to(device)
     loss_fn = nn.MSELoss()
     autoencoder_params = list(encoder.parameters()) + list(decoder.parameters())
-    optimizer = optim.Adam(autoencoder_params, lr=LEARNING_RATE)
+    optimizer = optim.AdamW(autoencoder_params, lr=LEARNING_RATE)
     min_test_loss = float('inf')
     print("----------3.开始训练模型 --------")
     train_loss_list = []
@@ -67,7 +67,7 @@ if __name__ == '__main__':
 
     print("----------4.从文件加载模型---------")
     loaded_encoder = ConvEncoder()
-    loaded_encoder.load_state_dict(torch.load(DECODER_MODEL_NAME,map_location=device))
+    loaded_encoder.load_state_dict(torch.load(ENCODER_MODEL_NAME,map_location=device))
     loaded_encoder.eval().to(device)
     print("----------加载模型完成---------")
     embeddings = create_embedding(loaded_encoder,full_loader,device)
