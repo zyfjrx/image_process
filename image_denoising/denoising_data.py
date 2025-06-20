@@ -32,6 +32,7 @@ class ImageDataset(Dataset):
             tensor_image = self.transform(image)
         else:
             raise ValueError("transform参数不能为None，需指定预处理方法")
+        # todo 高斯噪声和椒盐噪声混合注入策略
         nosie_images = tensor_image + torch.randn_like(tensor_image) * NOISE_FACTOR
         nosie_images = torch.clamp(nosie_images, 0., 1.)
         return nosie_images, tensor_image

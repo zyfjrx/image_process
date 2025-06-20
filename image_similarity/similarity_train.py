@@ -34,6 +34,7 @@ if __name__ == '__main__':
 
     encoder = ConvEncoder().to(device)
     decoder = ConvDecoder().to(device)
+    # todo 优化点引入对比损失
     loss_fn = nn.MSELoss()
     autoencoder_params = list(encoder.parameters()) + list(decoder.parameters())
     optimizer = optim.AdamW(autoencoder_params, lr=LEARNING_RATE)
@@ -72,7 +73,7 @@ if __name__ == '__main__':
     print("----------加载模型完成---------")
     embeddings = create_embedding(loaded_encoder,full_loader,device)
     vec_embeddings = embeddings.detach().cpu().numpy().reshape(embeddings.shape[0],-1)
-    np.save(EMBEDDING_NAME,embeddings)
+    np.save(EMBEDDING_NAME,vec_embeddings)
     print("张量嵌入形状：", embeddings.shape)
     print("向量嵌入形状：", vec_embeddings.shape)
 
