@@ -33,6 +33,7 @@ if __name__ == '__main__':
     print("--- 创建数据加载器完成 ---")
 
     model = ConvDenoiser().to(device)
+    # todo 优化：感知损失（预训练网络）
     loss_fn = nn.MSELoss()
     optimizer = optim.Adam(model.parameters(), lr=LEARNING_RATE)
     min_test_loss = float('inf')

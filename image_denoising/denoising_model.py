@@ -3,6 +3,7 @@ import torch
 
 
 # 搭建模型
+# todo 优化UNet、NNet++、TransformerNNet
 class ConvDenoiser(nn.Module):
     def __init__(self):
         super(ConvDenoiser, self).__init__()
